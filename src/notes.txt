@@ -1,0 +1,36 @@
+-let name:string 
+
+-let age:number 
+
+-let isLoading:boolean
+
+///// ARRAY //////
+* array vitra j element xa type tei hunxa
+
+-let users:string[];  //for array 
+    users=['ram','shyam']
+
+-let items:(string|number)[]=['juice','chips',10]; //array contains string and number
+
+-let role:[number,string];
+    role=[10,'ram']
+
+///// ARRAY  END//////
+
+////// FOR OBJECT /////
+let person:Object={
+    name:'ram',
+    age:10
+}
+OR
+type Person={
+    name:string,
+    age:number
+}
+let person:Person={
+    name:'ram',
+    age:10
+}
+///// Object END /////
+
+const lotsOfPerson:Person[]=[person]

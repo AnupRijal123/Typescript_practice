@@ -1,0 +1,16 @@
+.main-container {
+    background-color: red;
+}
+
+@mixin make-half-width {
+    width: 50%;
+}
+
+.test1 {
+    @include make-half-width;
+    background-color: pink;
+}
+
+.test2 {
+    background-color: yellow;
+}
