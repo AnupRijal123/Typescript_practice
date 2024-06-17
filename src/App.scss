@@ -1,16 +1,30 @@
+h1,
+p {
+    margin: 0;
+}
+
+$pink-color: pink;
+
+@mixin make-display-flex {
+    display: flex;
+}
+
 .main-container {
     background-color: red;
-}
 
-@mixin make-half-width {
-    width: 50%;
-}
+    .content-container {
+        background-color: yellow;
+        padding: 20px;
 
-.test1 {
-    @include make-half-width;
-    background-color: pink;
-}
+        .heading {
+            text-align: center;
+        }
 
-.test2 {
-    background-color: yellow;
+        .input-row {
+            @include make-display-flex;
+            background-color: $pink-color;
+            justify-content: center;
+            padding: 10px 0px;
+        }
+    }
 }

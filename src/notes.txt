@@ -1,6 +1,7 @@
 -let name:string 
 
 -let age:number 
+ let age:number|string  // | is or 
 
 -let isLoading:boolean
 
@@ -25,7 +26,7 @@ let person:Object={
 OR
 type Person={
     name:string,
-    age:number
+    age:number   or age? : number  // here age is optional 
 }
 let person:Person={
     name:'ram',
@@ -34,3 +35,66 @@ let person:Person={
 ///// Object END /////
 
 const lotsOfPerson:Person[]=[person]
+
+///////////////////// FUNCTION ////////////////////////////
+const sayHello:Function;
+
+function sayHello(name:string){
+    console.log('hello'+name)
+}
+OR
+
+const sayHello:(name:string)=>void   //if funtion is not returning anything so void, void gives undefined
+
+const sayHello:(name:string)=>never    //if function doesnot return anything
+
+const sayhello:(name:string)=>number // if function retrns number
+
+///////////////////// FUNCTION END ////////////////////////////
+
+let name:unknown  // if type can be anything
+
+/////////////////// TYPE AND INTERFACE //////////////
+type X={
+    a:string,
+    b:number
+}
+type Y={
+    c:string,
+    d:number
+}
+
+now if i want to put properties of x inside y then
+
+type Y = X & {
+     c:string,
+     d:number  
+}
+const value:Y={
+    a:'ram',
+    b:10,
+    c:'shyam',
+    d:20
+}
+& use gareko xa so X ko sabai property halnu parxa natra error auxa
+
+but in INTERFACE
+
+interface X{
+    a:string,
+    b:number
+}
+interface Y extends X{
+    c:string,
+    d:number
+}
+const value:Y={
+    a:'ram',
+    c:'shyam',
+    d:20
+}
+X ko sabai property nahaldab:10, ni hunxa
+
+
+/////////////////// TYPE AND INTERFACE END//////////////
+

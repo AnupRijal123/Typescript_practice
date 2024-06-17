@@ -1,17 +1,37 @@
 import React from 'react';
 import './App.scss';
-let name: string = 'ram';
-let age: number;
-age = 10;
-let users: string[] = ['ram', 'shyam'];
-let items: (string | number)[] = ['juice', 'chips', 10];
+import InputField from './components/InputField';
+import { useState } from 'react';
+import { Todo } from './model';
+import TodoList from './components/TodoList';
 
-function App() {
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>('');
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const handleAdd = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (todo) {
+      setTodos([...todos, {
+        id: Date.now(), todo: todo, isCompleted: false
+      }])
+    }
+    setTodo('');
+  };
+  console.log(todos);
   return (
-    <div>
-      <h1>hello {name}</h1>
+    <div className="main-container">
+      <div className="content-container">
+        <h1 className='heading'>To Do App</h1>
+        <div className="input-row">
+          <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+        </div>
+
+
+        <TodoList todos={todos} setTodos={setTodos} />
+
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;

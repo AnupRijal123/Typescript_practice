@@ -1,0 +1,12 @@
+.input-field {
+    input {
+        border: none;
+        padding: 10px;
+    }
+
+    input:focus {
+        box-shadow: 0 0 2px 1000px rgba(0, 0, 0, 0.7);
+    }
+
+
+}
