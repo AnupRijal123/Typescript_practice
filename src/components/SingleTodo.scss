@@ -1,0 +1,28 @@
+.single-todo-container {
+    background-color: blue;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+
+    p,
+    s {
+        word-break: break-all;
+    }
+
+    .icons-div {
+
+        .icons {
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+            transition: color 0.5s ease;
+        }
+
+        .completed {
+            color: green;
+        }
+    }
+}

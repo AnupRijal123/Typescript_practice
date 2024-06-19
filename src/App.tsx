@@ -11,13 +11,14 @@ const App: React.FC = () => {
   const handleAdd = (event: React.FormEvent) => {
     event.preventDefault();
     if (todo) {
-      setTodos([...todos, {
+      setTodos([{
         id: Date.now(), todo: todo, isCompleted: false
-      }])
+      }, ...todos,])
     }
     setTodo('');
   };
   console.log(todos);
+  console.log(...todos);
   return (
     <div className="main-container">
       <div className="content-container">
