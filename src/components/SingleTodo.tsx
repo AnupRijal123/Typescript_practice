@@ -3,7 +3,7 @@ import { MdDelete } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 import { Todo } from '../model';
 import './SingleTodo.scss';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 type Props = {
     item: Todo,
@@ -15,6 +15,29 @@ const SingleTodo = ({ item, todos, setTodos }: Props) => {
     console.log(item);
     const [isEdit, setIsEdit] = useState<boolean>(false);
     const [editTodo, setEditTodo] = useState<string>(item.todo);
+    const editRef = useRef<HTMLInputElement>(null);
+    useEffect(() => {
+        console.log(editRef.current);
+        editRef.current?.focus();
+
+    }, [isEdit]);
+
+    const iconDiv = document.querySelector('.icons-div');
+    console.log(iconDiv);
+    const handleClick = (event: Event) => {
+        console.log(event.target);
+        if (iconDiv?.contains(event.target as Node)) {
+            console.log('clicked inside')
+        } else {
+            console.log('clicked outside')
+            setIsEdit(false);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('click', handleClick);
+        return window.removeEventListener('click', handleClick)
+    }, []);
     const handleCheck = (id: number) => {
         setTodos(todos.map((todo) => todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo));
     }
@@ -45,8 +68,11 @@ const SingleTodo = ({ item, todos, setTodos }: Props) => {
 
             {isEdit &&
 
-                <input type="text" value={editTodo}
+                <input
+                    type="text"
+                    value={editTodo}
                     onChange={(event) => setEditTodo(event.target.value)}
+                    ref={editRef}
                 />
             }
             <div className="icons-div">

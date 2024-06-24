@@ -29,7 +29,7 @@ const App: React.FC = () => {
         <h1 className='heading'>To Do App</h1>
         <div className="input-row">
           <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-          <button onClick={() => setTodos([])}>clear all</button>
+          <button className="clear-button" onClick={() => setTodos([])}>clear all</button>
         </div>
 
 

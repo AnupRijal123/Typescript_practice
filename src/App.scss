@@ -25,6 +25,15 @@ $pink-color: pink;
             background-color: $pink-color;
             justify-content: center;
             padding: 10px 0px;
+            position: relative;
         }
+    }
+}
+
+.input-row {
+    .clear-button {
+        position: absolute;
+        right: 0;
+        top: 17px;
     }
 }
